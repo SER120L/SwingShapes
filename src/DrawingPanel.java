@@ -11,6 +11,8 @@ public class DrawingPanel extends JPanel
     private Rectangle _rectangle;
     private SmartRectangularShape _ellipse;
     private Line _line;
+    private Triangle _triangle;
+    private SmartPolygonShape _polygon;
 
     public DrawingPanel()
     {
@@ -30,6 +32,15 @@ public class DrawingPanel extends JPanel
         _line = new Line(10, 10, 70, 70);
         _line.setColor(Color.blue);
         _line.setThickness(10);
+        
+        _triangle = new Triangle();
+        _triangle.moveLocationBy(0, 0);
+        
+        _polygon = new SmartPolygonShape(new int[] {40,  0, 80}, new int[] {40, 80, 80});
+        _polygon.setRotation(90);
+        _polygon.moveLocationBy(50, 50);
+        _polygon.setBorderColor(Color.red);
+        _polygon.setBorderThickness(5);
     }
 
     @Override
@@ -38,7 +49,9 @@ public class DrawingPanel extends JPanel
         super.paintComponent(g);
         Graphics2D brush = (Graphics2D) g;
         _rectangle.paint(brush);
-        _ellipse.paint(brush);
-        _line.paint(brush);
+        //_ellipse.paint(brush);
+        //_line.paint(brush);
+        _triangle.paint(brush);
+        //_polygon.paint(brush);
     }
 }

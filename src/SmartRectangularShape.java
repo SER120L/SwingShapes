@@ -36,12 +36,36 @@ public class SmartRectangularShape {
         setLocation(250, 225);
         setSize(100, 100);
     }
-
-    public void setLocation(double x, double y) {
-        _s.setFrame(x, y, _s.getWidth(), _s.getHeight());
+    
+    public int getXLocation() {
+    	return (int)_s.getX();
+    }
+    
+    public int getYLocation() {
+    	return (int)_s.getY();
     }
 
-    public void setSize(double w, double h) {
+    public void setLocation(int x, int y) {
+        _s.setFrame(x, y, _s.getWidth(), _s.getHeight());
+    }
+    
+    public int getWidth() {
+    	return (int)_s.getWidth();
+    }
+    
+    public int getHeight() {
+    	return (int)_s.getHeight();
+    }
+    
+    public void setWidth(int w) {
+        _s.setFrame(_s.getX(), _s.getY(), w, _s.getHeight());
+    }
+    
+    public void setHeight(int h) {
+        _s.setFrame(_s.getX(), _s.getY(), _s.getWidth(), h);
+    }
+
+    public void setSize(int w, int h) {
         _s.setFrame(_s.getX(), _s.getY(), w, h);
     }
 
@@ -49,29 +73,29 @@ public class SmartRectangularShape {
         _fillColor = c;
         _borderColor = c;
     }
+    
+    public Color getFillColor() {
+        return _fillColor;
+    }
 
     public void setFillColor(Color c) {
         _fillColor = c;
     }
 
+    public Color getBorderColor() {
+        return _borderColor;
+    }
+    
     public void setBorderColor(Color c) {
         _borderColor = c;
     }
-
-    public Color getFillColor() {
-        return _fillColor;
-    }
-
-    public Color getBorderColor() {
-        return _borderColor;
+    
+    public double getRotation() {
+        return _rotation * 180 / Math.PI;
     }
 
     public void setRotation(double degrees) {
         _rotation = degrees * Math.PI / 180;
-    }
-
-    public double getRotation() {
-        return _rotation * 180 / Math.PI;
     }
     
     public int getBorderThickness() {
