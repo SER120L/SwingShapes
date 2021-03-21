@@ -1,0 +1,27 @@
+/**
+ * Write a description of the class here.
+ *
+ * @author
+ */
+
+import javax.swing.JFrame;
+
+public class App extends JFrame
+{
+    public App()
+    {
+        super("Happy Monday!");
+        this.setSize(1000, 900);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        // create a jpanel and add it to the frame
+        this.add(new DrawingPanel());
+
+        this.setVisible(true);
+    }
+
+    public static void main(String[] args)
+    {
+        new App();
+    }
+}
