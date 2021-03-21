@@ -1,6 +1,3 @@
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
 
 public class Triangle extends SmartPolygonShape {
 	
