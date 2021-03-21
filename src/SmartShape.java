@@ -11,6 +11,12 @@ public class SmartShape {
 		_thickness = 1;
 		_color = Color.white;
 	}
+	
+	public SmartShape(Shape s, Color color) {
+		_s = s;
+		_thickness = 1;
+		_color = color;
+	}
 
 	public int getThickness() {
 		return _thickness;

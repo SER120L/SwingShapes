@@ -2,7 +2,6 @@
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Stroke;
 import java.awt.geom.RectangularShape;
 
 public class SmartRectangularShape {
@@ -90,8 +89,10 @@ public class SmartRectangularShape {
         brush.fill(_s);
         brush.rotate(-_rotation, _s.getCenterX(), _s.getCenterY());
         
+		java.awt.Stroke oldStroke = brush.getStroke();
         brush.setColor(_borderColor);
         brush.setStroke(new BasicStroke(_borderThickness));
         brush.draw(_s);
+		brush.setStroke(oldStroke);
     }
 }
