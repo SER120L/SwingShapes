@@ -12,11 +12,11 @@ public class Triangle extends SmartPolygonShape {
 		super(new int[] {300, 300 + size, 300 - size}, new int[] {200, 200 + size, 200 + size});
 	}
 	
-	/*
-	public SmartTriangularShape(int x1, int y1, int x2, int y2, int x3, int y3, Color color) {
-		_xPoints = new int[] {x1, x2, x3};
-		_yPoints = new int[] {y1, y2, y3};
-		_color = color;
+	public Triangle(int height, int base) {
+		super(new int[] {300, 300 - (base / 2), 300 + (base / 2)}, new int[] {200, 200 + height, 200 + height});
 	}
-	*/
+	
+	public Triangle(int side1, int side2, int side3) {
+		super(new int[] {300, 300 - (side1 / 2), 300 + (side2 / 2)}, new int[] {200, 200 + side1, 200 + side2});
+	}
 }

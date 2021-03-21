@@ -7,53 +7,61 @@ import java.awt.geom.Path2D;
 
 public class SmartPolygonShape extends Path2D.Double {
 
-	private int _rotation = 0;
 	private int _x, _y;
+	private int _offsetX, _offsetY;
+	private int _rotation;
 	private Color _fillColor;
 	private Color _borderColor;
 	private int _borderThickness;
-
+	
 	public SmartPolygonShape(int[] xPoints, int[] yPoints) {
 		if (xPoints.length != yPoints.length) {
 			throw new RuntimeException("X and Y point arrays do not have same number of points.");
 		}
+		
 		moveTo(xPoints[0], yPoints[0]);
 		for (int i = 1; i < xPoints.length; i++) {
 			lineTo(xPoints[i], yPoints[i]);
 		}
-
 		closePath();
+		
 		_fillColor = Color.blue;
 		_borderColor = Color.blue;
 		_borderThickness = 0;
+		_x = xPoints[0];
+		_y = yPoints[0];
 	}
 
-    public double getRotation() {
-        return (int)(_rotation * 180 / Math.PI);
+    public int getRotation() {
+        return _rotation;
     }
 
-    public void setRotation(double degrees) {
-    	_rotation = (int)(degrees + Math.PI / 180);
+    public void setRotation(int degrees) {
+    	_rotation = degrees;
     }
     
     public int getXLocation() {
-    	return _x;
+    	return _offsetX;
     }
     
     public int getYLocation() {
-    	return _y;
+    	return _offsetY;
     }
     
-    public void moveLocationBy(int dx, int dy) {
-        _x += dx;
-    	_y += dy;
+    public void setLocation(int x, int y) {
+    	int dx = x - _x;
+    	int dy = y - _y;
+    	_offsetX += dx;
+    	_offsetY += dy;
+    	_x = x;
+    	_y = y;
     }
     
-    public Color getColor() {
+    public Color getFillColor() {
     	return _fillColor;
     }
     
-    public void setColor(Color color) {
+    public void setFillColor(Color color) {
     	_fillColor = color;
     	_borderColor = color;
     }
@@ -77,8 +85,8 @@ public class SmartPolygonShape extends Path2D.Double {
 	private Shape getTransformedInstance() {
 		AffineTransform at = new AffineTransform();
 		java.awt.Rectangle bounds = getBounds();
-		at.rotate(Math.toRadians(_rotation), _x + (bounds.width / 2), _y + (bounds.height / 2));
-		at.translate(_x, _y);
+		at.translate(_offsetX, _offsetY);
+		at.rotate(Math.toRadians(_rotation), bounds.getCenterX(), bounds.getCenterY());
 		return createTransformedShape(at);
 	}
 	

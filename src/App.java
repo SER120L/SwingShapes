@@ -5,7 +5,7 @@ public class App extends JFrame
 {
     public App()
     {
-        super("Happy Monday!");
+        super("Swing Shapes!");
         this.setSize(1000, 900);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 

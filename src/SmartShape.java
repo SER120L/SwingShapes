@@ -2,18 +2,18 @@ import java.awt.Color;
 import java.awt.Shape;
 
 public class SmartShape {
-	private Shape _s;
+	private Shape _shape;
 	private int _thickness;
 	private Color _color;
 
-	public SmartShape(Shape s) {
-		_s = s;
+	public SmartShape(Shape shape) {
+		_shape = shape;
 		_thickness = 1;
 		_color = Color.white;
 	}
 	
-	public SmartShape(Shape s, Color color) {
-		_s = s;
+	public SmartShape(Shape shape, Color color) {
+		_shape = shape;
 		_thickness = 1;
 		_color = color;
 	}
@@ -38,7 +38,7 @@ public class SmartShape {
 		java.awt.Stroke oldStroke = g.getStroke();
 		g.setStroke(new java.awt.BasicStroke(_thickness));
 		g.setColor(_color);
-		g.draw(_s);
+		g.draw(_shape);
 		g.setStroke(oldStroke);
 	}
 

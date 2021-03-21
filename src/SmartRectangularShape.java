@@ -5,13 +5,13 @@ import java.awt.Graphics2D;
 import java.awt.geom.RectangularShape;
 
 public class SmartRectangularShape {
-    private RectangularShape _s;
+    private RectangularShape _shape;
     private Color _fillColor, _borderColor;
     private double _rotation;
     private int _borderThickness;
 
-    public SmartRectangularShape(RectangularShape s) {
-        _s = s;
+    public SmartRectangularShape(RectangularShape shape) {
+    	_shape = shape;
         _fillColor = Color.red;
         _borderColor = Color.red;
         _borderThickness = 0;
@@ -19,8 +19,8 @@ public class SmartRectangularShape {
         setSize(100, 100);
     }
     
-    public SmartRectangularShape(RectangularShape s, int x, int y) {
-    	_s = s;
+    public SmartRectangularShape(RectangularShape shape, int x, int y) {
+    	_shape = shape;
         _fillColor = Color.red;
         _borderColor = Color.red;
         _borderThickness = 0;
@@ -28,8 +28,8 @@ public class SmartRectangularShape {
         setSize(100, 100);
     }
     
-    public SmartRectangularShape(RectangularShape s, Color color) {
-        _s = s;
+    public SmartRectangularShape(RectangularShape shape, Color color) {
+    	_shape = shape;
         _fillColor = color;
         _borderColor = color;
         _borderThickness = 0;
@@ -38,35 +38,35 @@ public class SmartRectangularShape {
     }
     
     public int getXLocation() {
-    	return (int)_s.getX();
+    	return (int)_shape.getX();
     }
     
     public int getYLocation() {
-    	return (int)_s.getY();
+    	return (int)_shape.getY();
     }
 
     public void setLocation(int x, int y) {
-        _s.setFrame(x, y, _s.getWidth(), _s.getHeight());
+    	_shape.setFrame(x, y, _shape.getWidth(), _shape.getHeight());
     }
     
     public int getWidth() {
-    	return (int)_s.getWidth();
+    	return (int)_shape.getWidth();
     }
     
     public int getHeight() {
-    	return (int)_s.getHeight();
+    	return (int)_shape.getHeight();
     }
     
     public void setWidth(int w) {
-        _s.setFrame(_s.getX(), _s.getY(), w, _s.getHeight());
+    	_shape.setFrame(_shape.getX(), _shape.getY(), w, _shape.getHeight());
     }
     
     public void setHeight(int h) {
-        _s.setFrame(_s.getX(), _s.getY(), _s.getWidth(), h);
+    	_shape.setFrame(_shape.getX(), _shape.getY(), _shape.getWidth(), h);
     }
 
     public void setSize(int w, int h) {
-        _s.setFrame(_s.getX(), _s.getY(), w, h);
+    	_shape.setFrame(_shape.getX(), _shape.getY(), w, h);
     }
 
     public void setColor(Color c) {
@@ -107,16 +107,16 @@ public class SmartRectangularShape {
     }
 
     public void paint(Graphics2D brush) {
-        brush.rotate(_rotation, _s.getCenterX(), _s.getCenterY());
+        brush.rotate(_rotation, _shape.getCenterX(), _shape.getCenterY());
 
         brush.setColor(_fillColor);
-        brush.fill(_s);
-        brush.rotate(-_rotation, _s.getCenterX(), _s.getCenterY());
+        brush.fill(_shape);
+        brush.rotate(-_rotation, _shape.getCenterX(), _shape.getCenterY());
         
 		java.awt.Stroke oldStroke = brush.getStroke();
         brush.setColor(_borderColor);
         brush.setStroke(new BasicStroke(_borderThickness));
-        brush.draw(_s);
+        brush.draw(_shape);
 		brush.setStroke(oldStroke);
     }
 }
