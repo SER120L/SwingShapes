@@ -1,8 +1,3 @@
-/**
- * Write a description of the class here.
- *
- * @author
- */
 
 import java.awt.Color;
 import java.awt.Dimension;
