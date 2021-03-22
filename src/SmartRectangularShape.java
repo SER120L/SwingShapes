@@ -111,12 +111,13 @@ public class SmartRectangularShape {
 
         brush.setColor(_fillColor);
         brush.fill(_shape);
-        brush.rotate(-_rotation, _shape.getCenterX(), _shape.getCenterY());
         
 		java.awt.Stroke oldStroke = brush.getStroke();
         brush.setColor(_borderColor);
         brush.setStroke(new BasicStroke(_borderThickness));
         brush.draw(_shape);
 		brush.setStroke(oldStroke);
+		
+        brush.rotate(-_rotation, _shape.getCenterX(), _shape.getCenterY());
     }
 }

@@ -9,7 +9,6 @@ public class App extends JFrame
         this.setSize(1000, 900);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // create a jpanel and add it to the frame
         this.add(new DrawingPanel());
 
         this.setVisible(true);
