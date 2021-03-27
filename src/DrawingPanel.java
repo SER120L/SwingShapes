@@ -31,6 +31,7 @@ public class DrawingPanel extends JPanel
         _line = new Line(10, 10, 70, 70);
         _line.setColor(Color.blue);
         _line.setThickness(10);
+        _line.setLocation(50, 50);
         
         _triangle = new Triangle(50);
         _triangle.setLocation(200, 200);
