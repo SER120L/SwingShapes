@@ -73,6 +73,7 @@ public class SmartShape {
 
 	public void paint(java.awt.Graphics2D g) {
 		Shape shape = getTransformedInstance();
+		
 		java.awt.Stroke oldStroke = g.getStroke();
 		g.setStroke(new java.awt.BasicStroke(_thickness));
 		g.setColor(_color);

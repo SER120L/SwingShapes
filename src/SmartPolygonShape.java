@@ -10,7 +10,7 @@ public class SmartPolygonShape extends Path2D.Double {
 	private int _x, _y;
 	private int _offsetX, _offsetY;
 	private int _rotation;
-	private Color _fillColor;
+	private Color _color;
 	private Color _borderColor;
 	private int _borderThickness;
 	
@@ -25,8 +25,8 @@ public class SmartPolygonShape extends Path2D.Double {
 		}
 		closePath();
 		
-		_fillColor = Color.blue;
-		_borderColor = Color.blue;
+		_color = Color.red;
+		_borderColor = Color.red;
 		_borderThickness = 0;
 		_x = xPoints[0];
 		_y = yPoints[0];
@@ -41,11 +41,11 @@ public class SmartPolygonShape extends Path2D.Double {
     }
     
     public int getXLocation() {
-    	return _offsetX;
+    	return _x;
     }
     
     public int getYLocation() {
-    	return _offsetY;
+    	return _y;
     }
     
     public void setLocation(int x, int y) {
@@ -57,12 +57,12 @@ public class SmartPolygonShape extends Path2D.Double {
     	_y = y;
     }
     
-    public Color getFillColor() {
-    	return _fillColor;
+    public Color getColor() {
+    	return _color;
     }
     
-    public void setFillColor(Color color) {
-    	_fillColor = color;
+    public void setColor(Color color) {
+    	_color = color;
     	_borderColor = color;
     }
     
@@ -92,7 +92,7 @@ public class SmartPolygonShape extends Path2D.Double {
 	
 	public void paint(Graphics2D brush) {
 		Shape shape = getTransformedInstance();
-		brush.setColor(_fillColor);
+		brush.setColor(_color);
 		brush.fill(shape);
 		
 		java.awt.Stroke oldStroke = brush.getStroke();
