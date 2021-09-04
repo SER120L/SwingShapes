@@ -1,6 +1,10 @@
 import java.awt.Color;
 
 public class RoundedRectangle extends SmartRectangularShape {
+	public RoundedRectangle() {
+		super(new java.awt.geom.RoundRectangle2D.Double(0, 0, 0, 0, 17, 17));
+	}
+	
 	public RoundedRectangle(int arcSize) {
 		super(new java.awt.geom.RoundRectangle2D.Double(0, 0, 0, 0, arcSize, arcSize));
 	}

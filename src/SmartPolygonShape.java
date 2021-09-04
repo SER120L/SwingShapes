@@ -7,12 +7,12 @@ import java.awt.geom.Path2D;
 
 public class SmartPolygonShape extends Path2D.Double {
 
-	private int _x, _y;
-	private int _offsetX, _offsetY;
-	private int _rotation;
-	private Color _color;
-	private Color _borderColor;
-	private int _borderThickness;
+	private int x, y;
+	private int offsetX, offsetY;
+	private int rotation;
+	private Color color;
+	private Color borderColor;
+	private int borderThickness;
 	
 	public SmartPolygonShape(int[] xPoints, int[] yPoints) {
 		if (xPoints.length != yPoints.length) {
@@ -25,79 +25,79 @@ public class SmartPolygonShape extends Path2D.Double {
 		}
 		closePath();
 		
-		_color = Color.red;
-		_borderColor = Color.red;
-		_borderThickness = 0;
-		_x = xPoints[0];
-		_y = yPoints[0];
+		this.color = Color.red;
+		this.borderColor = Color.red;
+		this.borderThickness = 0;
+		this.x = xPoints[0];
+		this.y = yPoints[0];
 	}
 
     public int getRotation() {
-        return _rotation;
+        return rotation;
     }
 
     public void setRotation(int degrees) {
-    	_rotation = degrees;
+    	this.rotation = degrees;
     }
     
     public int getXLocation() {
-    	return _x;
+    	return x;
     }
     
     public int getYLocation() {
-    	return _y;
+    	return y;
     }
     
     public void setLocation(int x, int y) {
-    	int dx = x - _x;
-    	int dy = y - _y;
-    	_offsetX += dx;
-    	_offsetY += dy;
-    	_x = x;
-    	_y = y;
+    	int dx = x - this.x;
+    	int dy = y - this.y;
+    	offsetX += dx;
+    	offsetY += dy;
+    	this.x = x;
+    	this.y = y;
     }
     
     public Color getColor() {
-    	return _color;
+    	return color;
     }
     
     public void setColor(Color color) {
-    	_color = color;
-    	_borderColor = color;
+    	this.color = color;
+    	this.borderColor = color;
     }
     
     public Color getBorderColor() {
-    	return _borderColor;
+    	return borderColor;
     }
     
     public void setBorderColor(Color color) {
-    	_borderColor = color;
+    	this.borderColor = color;
     }
 
     public int getBorderThickness() {
-    	return _borderThickness;
+    	return borderThickness;
     }
     
     public void setBorderThickness(int borderThickness) {
-    	_borderThickness = borderThickness;
+    	this.borderThickness = borderThickness;
     }
 
 	private Shape getTransformedInstance() {
 		AffineTransform at = new AffineTransform();
 		java.awt.Rectangle bounds = getBounds();
-		at.translate(_offsetX, _offsetY);
-		at.rotate(Math.toRadians(_rotation), bounds.getCenterX(), bounds.getCenterY());
+		at.translate(offsetX, offsetY);
+		at.rotate(Math.toRadians(rotation), bounds.getCenterX(), bounds.getCenterY());
 		return createTransformedShape(at);
 	}
 	
 	public void paint(Graphics2D brush) {
 		Shape shape = getTransformedInstance();
-		brush.setColor(_color);
+		brush.setColor(color);
 		brush.fill(shape);
 		
 		java.awt.Stroke oldStroke = brush.getStroke();
-		brush.setColor(_borderColor);
-        brush.setStroke(new BasicStroke(_borderThickness));
+		brush.setColor(borderColor);
+        brush.setStroke(new BasicStroke(borderThickness));
         brush.draw(shape);
 		brush.setStroke(oldStroke);
 	}

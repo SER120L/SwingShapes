@@ -5,119 +5,119 @@ import java.awt.Graphics2D;
 import java.awt.geom.RectangularShape;
 
 public class SmartRectangularShape {
-    private RectangularShape _shape;
-    private Color _fillColor, _borderColor;
-    private double _rotation;
-    private int _borderThickness;
+    private RectangularShape shape;
+    private Color fillColor, borderColor;
+    private double rotation;
+    private int borderThickness;
 
     public SmartRectangularShape(RectangularShape shape) {
-    	_shape = shape;
-        _fillColor = Color.red;
-        _borderColor = Color.red;
-        _borderThickness = 0;
+    	this.shape = shape;
+    	this.fillColor = Color.red;
+    	this.borderColor = Color.red;
+    	this.borderThickness = 0;
         setLocation(250, 225);
         setSize(100, 100);
     }
     
     public SmartRectangularShape(RectangularShape shape, int x, int y) {
-    	_shape = shape;
-        _fillColor = Color.red;
-        _borderColor = Color.red;
-        _borderThickness = 0;
+    	this.shape = shape;
+    	this.fillColor = Color.red;
+    	this.borderColor = Color.red;
+    	this.borderThickness = 0;
     	setLocation(x,  y);
         setSize(100, 100);
     }
     
     public SmartRectangularShape(RectangularShape shape, Color color) {
-    	_shape = shape;
-        _fillColor = color;
-        _borderColor = color;
-        _borderThickness = 0;
+    	this.shape = shape;
+    	this.fillColor = color;
+    	this.borderColor = color;
+    	this.borderThickness = 0;
         setLocation(250, 225);
         setSize(100, 100);
     }
     
     public int getXLocation() {
-    	return (int)_shape.getX();
+    	return (int)shape.getX();
     }
     
     public int getYLocation() {
-    	return (int)_shape.getY();
+    	return (int)shape.getY();
     }
 
     public void setLocation(int x, int y) {
-    	_shape.setFrame(x, y, _shape.getWidth(), _shape.getHeight());
+    	shape.setFrame(x, y, shape.getWidth(), shape.getHeight());
     }
     
     public int getWidth() {
-    	return (int)_shape.getWidth();
+    	return (int)shape.getWidth();
     }
     
     public int getHeight() {
-    	return (int)_shape.getHeight();
+    	return (int)shape.getHeight();
     }
     
     public void setWidth(int w) {
-    	_shape.setFrame(_shape.getX(), _shape.getY(), w, _shape.getHeight());
+    	shape.setFrame(shape.getX(), shape.getY(), w, shape.getHeight());
     }
     
     public void setHeight(int h) {
-    	_shape.setFrame(_shape.getX(), _shape.getY(), _shape.getWidth(), h);
+    	shape.setFrame(shape.getX(), shape.getY(), shape.getWidth(), h);
     }
 
     public void setSize(int w, int h) {
-    	_shape.setFrame(_shape.getX(), _shape.getY(), w, h);
+    	shape.setFrame(shape.getX(), shape.getY(), w, h);
     }
 
     public void setColor(Color c) {
-        _fillColor = c;
-        _borderColor = c;
+    	fillColor = c;
+    	borderColor = c;
     }
     
     public Color getFillColor() {
-        return _fillColor;
+        return fillColor;
     }
 
     public void setFillColor(Color c) {
-        _fillColor = c;
+    	this.fillColor = c;
     }
 
     public Color getBorderColor() {
-        return _borderColor;
+        return borderColor;
     }
     
     public void setBorderColor(Color c) {
-        _borderColor = c;
+    	this.borderColor = c;
     }
     
     public double getRotation() {
-        return _rotation * 180 / Math.PI;
+        return rotation * 180 / Math.PI;
     }
 
     public void setRotation(double degrees) {
-        _rotation = degrees * Math.PI / 180;
+    	this.rotation = degrees * Math.PI / 180;
     }
     
     public int getBorderThickness() {
-    	return _borderThickness;
+    	return borderThickness;
     }
     
     public void setBorderThickness(int thickness) {
-    	_borderThickness = thickness;
+    	this.borderThickness = thickness;
     }
 
     public void paint(Graphics2D brush) {
-        brush.rotate(_rotation, _shape.getCenterX(), _shape.getCenterY());
+        brush.rotate(rotation, shape.getCenterX(), shape.getCenterY());
 
-        brush.setColor(_fillColor);
-        brush.fill(_shape);
+        brush.setColor(fillColor);
+        brush.fill(shape);
         
 		java.awt.Stroke oldStroke = brush.getStroke();
-        brush.setColor(_borderColor);
-        brush.setStroke(new BasicStroke(_borderThickness));
-        brush.draw(_shape);
+        brush.setColor(borderColor);
+        brush.setStroke(new BasicStroke(borderThickness));
+        brush.draw(shape);
 		brush.setStroke(oldStroke);
 		
-        brush.rotate(-_rotation, _shape.getCenterX(), _shape.getCenterY());
+        brush.rotate(-rotation, shape.getCenterX(), shape.getCenterY());
     }
 }

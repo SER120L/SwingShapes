@@ -8,10 +8,10 @@ import javax.swing.JPanel;
 
 public class DrawingPanel extends JPanel
 {
-    private Rectangle _rectangle;
-    private Ellipse _ellipse;
-    private Line _line;
-    private Triangle _triangle;
+    private Rectangle rectangle;
+    private Ellipse ellipse;
+    private Line line;
+    private Triangle triangle;
 
     public DrawingPanel()
     {
@@ -19,23 +19,25 @@ public class DrawingPanel extends JPanel
         this.setSize(1000, 900);
         this.setBackground(Color.white);  
         
-        _rectangle = new Rectangle();
-        _rectangle.setFillColor(Color.blue);
-        _rectangle.setBorderColor(Color.gray);
+        rectangle = new Rectangle();
+        rectangle.setFillColor(Color.blue);
+        rectangle.setBorderColor(Color.green);
+        rectangle.setBorderThickness(6);
         
-        _ellipse = new Ellipse();
-        _ellipse.setFillColor(Color.blue);
-        _ellipse.setBorderColor(Color.black);
-        _ellipse.setLocation(330,  330);
+        ellipse = new Ellipse();
+        ellipse.setFillColor(Color.blue);
+        ellipse.setBorderColor(Color.black);
+        ellipse.setLocation(330,  330);
         
-        _line = new Line(10, 10, 70, 70);
-        _line.setColor(Color.blue);
-        _line.setThickness(10);
-        _line.setLocation(50, 50);
+        line = new Line(10, 10, 70, 70);
+        line.setColor(Color.blue);
+        line.setThickness(10);
+        line.setLocation(50, 50);
         
-        _triangle = new Triangle(50);
-        _triangle.setLocation(200, 200);
-        _triangle.setRotation(90);
+        triangle = new Triangle(50);
+        triangle.setColor(Color.pink);
+        triangle.setLocation(200, 200);
+        triangle.setRotation(90);
     }
 
     @Override
@@ -43,9 +45,9 @@ public class DrawingPanel extends JPanel
     {
         super.paintComponent(g);
         Graphics2D brush = (Graphics2D) g;
-        _rectangle.paint(brush);
-        _ellipse.paint(brush);
-        _line.paint(brush);
-        _triangle.paint(brush);
+        rectangle.paint(brush);
+        ellipse.paint(brush);
+        line.paint(brush);
+        triangle.paint(brush);
     }
 }
