@@ -1,5 +1,5 @@
 
-public class Triangle extends SmartPolygonShape {
+public class Triangle extends PolygonShape {
 	
 	public Triangle() {
 		super(new int[] {300, 400, 200}, new int[] {200, 300, 300});

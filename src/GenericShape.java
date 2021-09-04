@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 
-public class SmartShape {
+public class GenericShape {
 	private Shape shape;
 	private int x, y;
 	private int offsetX, offsetY;
@@ -10,13 +10,13 @@ public class SmartShape {
 	private Color color;
 	public int rotation;
 	
-	public SmartShape(Shape shape) {
+	public GenericShape(Shape shape) {
 		this.shape = shape;
 		this.thickness = 1;
 		this.color = Color.white;
 	}
 	
-	public SmartShape(Shape shape, Color color) {
+	public GenericShape(Shape shape, Color color) {
 		this.shape = shape;
 		this.thickness = 1;
 		this.color = color;

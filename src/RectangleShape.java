@@ -4,13 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.RectangularShape;
 
-public class SmartRectangularShape {
+public class RectangleShape {
     private RectangularShape shape;
     private Color fillColor, borderColor;
     private double rotation;
     private int borderThickness;
 
-    public SmartRectangularShape(RectangularShape shape) {
+    public RectangleShape(RectangularShape shape) {
     	this.shape = shape;
     	this.fillColor = Color.red;
     	this.borderColor = Color.red;
@@ -19,7 +19,7 @@ public class SmartRectangularShape {
         setSize(100, 100);
     }
     
-    public SmartRectangularShape(RectangularShape shape, int x, int y) {
+    public RectangleShape(RectangularShape shape, int x, int y) {
     	this.shape = shape;
     	this.fillColor = Color.red;
     	this.borderColor = Color.red;
@@ -28,7 +28,7 @@ public class SmartRectangularShape {
         setSize(100, 100);
     }
     
-    public SmartRectangularShape(RectangularShape shape, Color color) {
+    public RectangleShape(RectangularShape shape, Color color) {
     	this.shape = shape;
     	this.fillColor = color;
     	this.borderColor = color;

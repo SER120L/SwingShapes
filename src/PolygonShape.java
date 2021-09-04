@@ -5,7 +5,7 @@ import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Path2D;
 
-public class SmartPolygonShape extends Path2D.Double {
+public class PolygonShape extends Path2D.Double {
 
 	private int x, y;
 	private int offsetX, offsetY;
@@ -14,7 +14,7 @@ public class SmartPolygonShape extends Path2D.Double {
 	private Color borderColor;
 	private int borderThickness;
 	
-	public SmartPolygonShape(int[] xPoints, int[] yPoints) {
+	public PolygonShape(int[] xPoints, int[] yPoints) {
 		if (xPoints.length != yPoints.length) {
 			throw new RuntimeException("X and Y point arrays do not have same number of points.");
 		}
