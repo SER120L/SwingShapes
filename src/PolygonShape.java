@@ -13,6 +13,7 @@ public class PolygonShape extends Path2D.Double {
 	private Color color;
 	private Color borderColor;
 	private int borderThickness;
+	private double scaleX, scaleY;
 	
 	public PolygonShape(int[] xPoints, int[] yPoints) {
 		if (xPoints.length != yPoints.length) {
@@ -30,6 +31,8 @@ public class PolygonShape extends Path2D.Double {
 		this.borderThickness = 0;
 		this.x = xPoints[0];
 		this.y = yPoints[0];
+		this.scaleX = 1;
+		this.scaleY = 1;
 	}
 
     public int getRotation() {
@@ -81,12 +84,36 @@ public class PolygonShape extends Path2D.Double {
     public void setBorderThickness(int borderThickness) {
     	this.borderThickness = borderThickness;
     }
+    
+    public double getScaleX() {
+    	return scaleX;
+    }
+    
+    public void setScaleX(double scaleX) {
+    	this.scaleX = scaleX;
+    }
+    
+    public double getScaleY() {
+    	return scaleY;
+    }
+    
+    public void setScaleY(double scaleY) {
+    	this.scaleY = scaleY;
+    }
 
 	private Shape getTransformedInstance() {
 		AffineTransform at = new AffineTransform();
 		java.awt.Rectangle bounds = getBounds();
+		
 		at.translate(offsetX, offsetY);
 		at.rotate(Math.toRadians(rotation), bounds.getCenterX(), bounds.getCenterY());
+		
+		double centerX = getBounds2D().getCenterX();
+		double centerY = getBounds2D().getCenterY();
+		at.translate(centerX, centerY);
+		at.scale(scaleX, scaleY);
+		at.translate(-centerX, -centerY);
+		
 		return createTransformedShape(at);
 	}
 	
