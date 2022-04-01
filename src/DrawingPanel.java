@@ -1,6 +1,5 @@
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -12,6 +11,7 @@ public class DrawingPanel extends JPanel
     private Ellipse ellipse;
     private Line line;
     private Triangle triangle;
+    private Pentagon pentagon;
 
     public DrawingPanel()
     {
@@ -38,6 +38,10 @@ public class DrawingPanel extends JPanel
         triangle.setColor(Color.pink);
         triangle.setLocation(200, 200);
         triangle.setRotation(90);
+        
+        pentagon = new Pentagon();
+        pentagon.setColor(Color.green);
+        pentagon.setLocation(400, 400);
     }
 
     @Override
@@ -49,5 +53,6 @@ public class DrawingPanel extends JPanel
         ellipse.paint(brush);
         line.paint(brush);
         triangle.paint(brush);
+        pentagon.paint(brush);
     }
 }

@@ -100,6 +100,11 @@ public class PolygonShape extends Path2D.Double {
     public void setScaleY(double scaleY) {
     	this.scaleY = scaleY;
     }
+    
+    public void setScale(double scaleX, double scaleY) {
+    	this.scaleX = scaleX;
+    	this.scaleY = scaleY;
+    }
 
 	private Shape getTransformedInstance() {
 		AffineTransform at = new AffineTransform();
