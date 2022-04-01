@@ -41,7 +41,7 @@ public class DrawingPanel extends JPanel
         
         pentagon = new Pentagon();
         pentagon.setColor(Color.green);
-        pentagon.setLocation(400, 400);
+        pentagon.setLocation(500, 400);
     }
 
     @Override
