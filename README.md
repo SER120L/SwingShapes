@@ -1,7 +1,8 @@
 # Shape Graphics
 
-Shape code for that somewhat mimics how Wheels works. 
+Shape objects for graphics work.
 Designed for Swing but can most likely be used with other Java graphical libraries.
+Call any shape's `paint` method to draw it on any Swing component (requires a `Graphics2D` object instance).
 
 To use, just take the classes you need.
 
@@ -33,7 +34,9 @@ The `Ellipse` class creates a circular shape. Fill color, border color, border t
 Ellipse ellipse = new Ellipse();
 ```
 
-The `RectangleShape` class must be included for this shape.
+Additionally, there's a cutInHalf field, which when set to true will cut the ellipse in half, creating a "half circle".
+
+The `EllipseShape` and `RectangleShape` classes must be included for this shape.
 
 ## RoundedRectangle
 
@@ -48,15 +51,24 @@ The `RectangleShape` class must be included for this shape.
 
 ## Triangle
 
-The `Triangle` class creates a triangular shape. Fill color, border color, border thickness, location, and rotation can be set.
+The `Triangle` class creates a triangular shape. Fill color, border color, border thickness, location, scale, and rotation can be set.
 
-This was a pretty tough shape to get working properly, as it is really just a collection of points that the class draws together, so there are several ways to initialize it in order to get the type of triangle desired.
 
 ```java
 Triangle triangle = new Triangle();             // default equilateral triangle
 Triangle triangle2 = new Triangle(50);          // equilateral triangle of custom side lengths
 Triangle triangle3 = new Triangle(40, 30);      // isosceles triangle (height, base)
 Triangle triangle4 = new Triangle(40, 30, 60);  // custom-sized triangle (side1, side2, side3)
+```
+
+The `PolygonShape` class must be included for this shape.
+
+## Pentagon
+
+The `Pentagon` class creates a pentagon shape. Fill color, border color, border thickness, location, scale, and rotation can be set.
+
+```java
+Pentagon pentagon = new Pentagon();             
 ```
 
 The `PolygonShape` class must be included for this shape.

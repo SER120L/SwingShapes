@@ -28,6 +28,7 @@ public class DrawingPanel extends JPanel
         ellipse.setFillColor(Color.blue);
         ellipse.setBorderColor(Color.black);
         ellipse.setLocation(330,  330);
+        ellipse.setCutInHalf(true);
         
         line = new Line(10, 10, 70, 70);
         line.setColor(Color.blue);
@@ -56,5 +57,6 @@ public class DrawingPanel extends JPanel
         line.paint(brush);
         triangle.paint(brush);
         pentagon.paint(brush);
+        
     }
 }

@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class Ellipse extends RectangleShape {
+public class Ellipse extends EllipseShape {
 	public Ellipse() {
 		super(new java.awt.geom.Ellipse2D.Double());
 	}
