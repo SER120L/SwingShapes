@@ -11,14 +11,12 @@ public class RectangleShape {
     protected Color fillColor, borderColor;
     protected double rotation;
     protected int borderThickness;
-    //private boolean cutInHalf;
 
     public RectangleShape(RectangularShape shape) {
     	this.shape = shape;
     	this.fillColor = Color.red;
     	this.borderColor = Color.red;
     	this.borderThickness = 0;
-    	//cutInHalf = false;
         setLocation(250, 225);
         setSize(100, 100);
     }
@@ -28,7 +26,6 @@ public class RectangleShape {
     	this.fillColor = Color.red;
     	this.borderColor = Color.red;
     	this.borderThickness = 0;
-    	//cutInHalf = false;
     	setLocation(x,  y);
         setSize(100, 100);
     }
@@ -38,7 +35,6 @@ public class RectangleShape {
     	this.fillColor = color;
     	this.borderColor = color;
     	this.borderThickness = 0;
-    	//cutInHalf = false;
         setLocation(250, 225);
         setSize(100, 100);
     }
@@ -111,23 +107,8 @@ public class RectangleShape {
     public void setBorderThickness(int thickness) {
     	this.borderThickness = thickness;
     }
-    
-//    public boolean getCutInHalf() {
-//    	return cutInHalf;
-//    }
-//    
-//    public void setCutInHalf(boolean cutInHalf) {
-//    	this.cutInHalf = cutInHalf;
-//    }
 
     public void paint(Graphics2D brush) {
-//        Area area = new Area(shape);
-//        
-//        if (cutInHalf) {
-//        	Area choppedArea = new Area(new Rectangle(getXLocation(), getYLocation() + (getHeight() / 2), getWidth(), getHeight() / 2));
-//        	area.subtract(choppedArea);
-//        }
-    	
         brush.rotate(rotation, shape.getCenterX(), shape.getCenterY());
 
         brush.setColor(fillColor);
